@@ -6,6 +6,7 @@ cd word_worm_fast_api
 
 # Создать виртуальное окружение
 python -m venv venv
+-
 venv\Scripts\activate
 
 # Установить зависимости
