@@ -10,10 +10,10 @@ venv\Scripts\activate
 
 # Установить зависимости
 pip install -r requirements.txt
-2. Запуск
+# Запуск
 bash
 python main.py
-3. Отправка запроса
+# Отправка запроса
 Откройте браузер и перейдите по адресу:
 
 http://localhost:8060/docs#/Reports/export_report_public_report_export_post
