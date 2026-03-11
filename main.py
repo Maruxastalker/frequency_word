@@ -2,10 +2,8 @@ from fastapi import FastAPI
 
 from app.api.routes.report import router as public_router
 
-# Создаем приложение
 app = FastAPI(title="Frequency Report API")
 
-# Подключаем роутер
 app.include_router(public_router)
 
 

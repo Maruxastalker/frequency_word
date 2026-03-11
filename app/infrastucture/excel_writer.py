@@ -32,7 +32,6 @@ class ExcelReportWriter:
         ws = wb.active
         ws.title = "Частотный анализ"
 
-        # Заголовки
         headers = [
             "Словоформа (лемма)",
             "Кол-во во всём документе",
@@ -46,7 +45,6 @@ class ExcelReportWriter:
             cell.alignment = self.HEADER_ALIGNMENT
             cell.border = self.THIN_BORDER
 
-        # Данные
         entries = report.get_sorted_entries()
         
         for row_idx, wf in enumerate(entries, start=2):
@@ -61,12 +59,10 @@ class ExcelReportWriter:
             cell_lines = ws.cell(row=row_idx, column=3, value=line_dist)
             cell_lines.border = self.THIN_BORDER
 
-        # Ширина столбцов
         ws.column_dimensions["A"].width = 25
         ws.column_dimensions["B"].width = 30
         ws.column_dimensions["C"].width = 60
 
-        # Сохраняем
         tmp = tempfile.NamedTemporaryFile(
             suffix=".xlsx",
             prefix="frequency_report_",

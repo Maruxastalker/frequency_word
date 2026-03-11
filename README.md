@@ -10,9 +10,11 @@ venv\Scripts\activate
 
 # Установить зависимости
 pip install -r requirements.txt
+
 2. Запуск
 bash
 python main.py
+
 3. Отправка запроса
 Откройте браузер и перейдите по адресу:
 

@@ -27,11 +27,9 @@ class ReportExportService:
         Returns:
             Путь к сгенерированному xlsx-файлу.
         """
-        # Шаг 1: читаем файл и анализируем
         lines = self._file_reader.read_lines(upload)
         report = await self._analyzer.analyzer(lines)
 
-        # Шаг 2: записываем Excel (CPU-bound → executor)
         loop = asyncio.get_event_loop()
         file_path = await loop.run_in_executor(None, self._writer.write, report)
 
