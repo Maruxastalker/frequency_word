@@ -58,21 +58,6 @@ async def export_report(
             detail=f"Файл слишком большой"
         )
 
-    # async with _export_semaphore:
-    #     service = ReportExportService()
-
-    #     try:
-    #         xlsx_path = await service.export(file)
-    #     except HTTPException:
-    #         raise
-    #     except Exception as e:
-    #         raise HTTPException(
-    #             status_code=500,
-    #             detail=f"Ошибка при обработке файла: {str(e)}"
-    #         )
-    #     finally:
-    #         await file.close()
-
     try:
         service = ReportExportService()
 
