@@ -12,7 +12,6 @@ from app.application.services.report_service import ReportExportService
 
 router = APIRouter(tags=["Reports"])
 
-# Ограничение одновременных тяжёлых обработок
 MAX_CONCURRENT_EXPORTS = 3
 MAX_FILE_SIZE = 500 * 1024 * 1024
 EXPORT_TIMEOUT = 300 
