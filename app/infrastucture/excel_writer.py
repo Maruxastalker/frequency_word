@@ -11,7 +11,6 @@ from app.domain.models.word_frequency import FrequencyReport
 
 
 class ExcelReportWriter:
-    """Записывает FrequencyReport в xlsx-файл."""
 
     HEADER_FONT = Font(bold=True, size=12, color="FFFFFF")
     HEADER_FILL = PatternFill(start_color="4472C4", end_color="4472C4", fill_type="solid")
@@ -24,10 +23,6 @@ class ExcelReportWriter:
     )
 
     def write(self, report: FrequencyReport) -> str:
-        """
-        Записать отчёт во временный xlsx-файл.
-        Возвращает путь к файлу.
-        """
         wb = Workbook()
         ws = wb.active
         ws.title = "Частотный анализ"

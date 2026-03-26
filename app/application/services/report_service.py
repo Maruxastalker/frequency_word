@@ -8,12 +8,6 @@ from app.infrastucture.excel_writer import ExcelReportWriter
 
 
 class ReportExportService:
-    """
-    Use-case: принять файл → частотный анализ → Excel.
-    
-    CPU-bound операции выполняются через run_in_executor,
-    чтобы не блокировать event loop.
-    """
 
     def __init__(self) -> None:
         self._file_reader = FileReader()
@@ -21,12 +15,7 @@ class ReportExportService:
         self._writer = ExcelReportWriter()
 
     async def export(self, upload: UploadFile) -> str:
-        """
-        Основной сценарий экспорта.
-        
-        Returns:
-            Путь к сгенерированному xlsx-файлу.
-        """
+
         lines = self._file_reader.read_lines(upload)
         report = await self._analyzer.analyzer(lines)
 

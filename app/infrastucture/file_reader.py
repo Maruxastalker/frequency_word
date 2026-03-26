@@ -1,7 +1,3 @@
-"""
-Инфраструктурный сервис чтения файлов.
-"""
-
 import codecs
 from typing import AsyncIterator
 
@@ -9,17 +5,12 @@ from fastapi import UploadFile, HTTPException
 
 
 class FileReader:
-    """Потоковое чтение загруженных файлов."""
 
     def __init__(self, chunk_size: int = 1024 * 1024):
         self._chunk_size = chunk_size
 
     async def read_lines(self, upload: UploadFile) -> AsyncIterator[str]:
-        """
-        Читает UploadFile построчно.
-        Использует инкрементальный декодер для корректной
-        обработки многобайтовых символов на границах чанков.
-        """
+
         decoder = codecs.getincrementaldecoder("utf-8")(errors="strict")
         buffer = ""
 

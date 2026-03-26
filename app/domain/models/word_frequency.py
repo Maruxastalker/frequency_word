@@ -16,7 +16,6 @@ class WordFrequency:
         return [self.line_counts.get(i, 0) for i in range(total_lines)]
 
     def get_line_distribution_str(self, total_lines: int) -> str:
-        """Получить распределение по строкам в виде строки '0,11,32,0,0,3'."""
         return ",".join(str(c) for c in self.get_line_distribution(total_lines))
     
 

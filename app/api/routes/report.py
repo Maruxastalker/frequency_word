@@ -1,7 +1,3 @@
-"""
-API-роутер для экспорта отчётов.
-"""
-
 import os
 import asyncio
 
@@ -20,7 +16,6 @@ _export_semaphore = asyncio.Semaphore(MAX_CONCURRENT_EXPORTS)
 
 
 def _cleanup_file(path: str) -> None:
-    """Удалить временный файл после отправки."""
     try:
         if os.path.exists(path):
             os.unlink(path)
@@ -42,12 +37,7 @@ async def export_report(
     background_tasks: BackgroundTasks,
     file: UploadFile = File(..., description="Текстовый файл для анализа"),
 ):
-    """
-    POST /public/report/export
-    
-    Принимает: текстовый файл (multipart/form-data)
-    Возвращает: xlsx-файл с частотным анализом
-    """
+
     if not file.filename:
         raise HTTPException(status_code=400, detail="Файл не передан.")
 
